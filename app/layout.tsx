@@ -7,7 +7,7 @@ const notoSansKr = Noto_Sans_KR({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '플랫',
-  description: '지도 안에서 만나는 이야기',
+  description: '우리 동네 실시간 할인 쿠폰 예약하기',
   icons: {
     icon: [
       {
