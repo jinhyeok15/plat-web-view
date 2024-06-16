@@ -1,5 +1,6 @@
 export const getProcessEnv = () => ({
   KAKAO_JAVASCRIPT_APP_KEY: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_APP_KEY,
+  PLAT_API_URL: process.env.PLAT_API_URL,
 })
 
 const Environment = ({ children }: { children: React.ReactNode }) => {

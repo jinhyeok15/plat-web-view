@@ -1,0 +1,10 @@
+export type URI =
+  | '/promotions/market'
+  | '/promotions/markets'
+  | '/promotions/markets/{id}'
+  | '/promotions/product'
+  | '/promotions/products/images'
+  | '/promotions/products/{id}'
+  | '/promotions/coupon'
+  | '/promotions/coupons/{marketId}'
+  | '/benefits/coupons/{marketId}'
