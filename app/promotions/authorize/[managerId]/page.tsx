@@ -4,6 +4,8 @@ interface PageProps {
   }
 }
 
-const Page = ({ params }: { params: { managerId: string } }) => {}
+const Page = ({ params }: PageProps) => {
+  return <></>
+}
 
 export default Page
