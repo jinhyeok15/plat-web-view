@@ -11,16 +11,30 @@ export class RestAPI<URI extends string> {
   }
 
   fetch(uri?: URI, method?: HttpMethod, opt: RequestOption = {}) {
-    if (typeof uri !== 'string' || typeof this.config.uri !== 'string') {
+    if (typeof uri !== 'string' && typeof this.config.uri !== 'string') {
       throw new Error('uri를 입력하지 않았습니다.')
     }
 
-    const url = this.baseUrl + formatUri(uri ?? this.config.uri, opt.query)
+    const url =
+      this.baseUrl + formatUri((uri ?? this.config.uri) as URI, opt.query)
 
     return fetch(url, {
       ...this.config,
       method: method ?? this.config.method ?? 'GET',
       ...opt,
     })
+  }
+
+  getClient(config: RequestOption = {}) {
+    this.config = {
+      ...this.config,
+      ...config,
+      headers: {
+        ...this.config.headers,
+        ...config.headers,
+      },
+    }
+
+    return new RestAPI(this.baseUrl, this.config)
   }
 }

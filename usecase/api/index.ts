@@ -7,18 +7,17 @@ const processEnv = getProcessEnv()
 
 const BASE_URL = processEnv.PLAT_API_URL as string
 
-class RestAPI extends _RestAPI<URI> {
+export class APIClient extends _RestAPI<URI> {
   constructor(baseUrl: string, init?: Partial<FetchConfig<URI>>) {
     super(baseUrl, init)
   }
-
-  getClient(config?: Partial<FetchConfig<URI>>) {
-    return new _RestAPI(BASE_URL, config)
-  }
 }
 
-const api = new RestAPI(BASE_URL, {
+const api = new APIClient(BASE_URL, {
   credentials: 'include',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 })
 
 export default api

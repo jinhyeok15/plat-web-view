@@ -1,4 +1,5 @@
 export type URI =
+  | '/promotions/market-access'
   | '/promotions/market'
   | '/promotions/markets'
   | '/promotions/markets/{id}'
