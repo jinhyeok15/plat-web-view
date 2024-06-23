@@ -1,5 +1,7 @@
+import MarketForm from '@plat/promotion/MarketForm'
+
 const Page = () => {
-  return <></>
+  return <MarketForm />
 }
 
 export default Page

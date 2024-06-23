@@ -1,11 +1,11 @@
-import { Environment } from '@plat/server'
+import { EnvironmentProvider } from '@plat/process.env'
 
 const RootTemplate = ({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) => {
-  return <Environment>{children}</Environment>
+  return <EnvironmentProvider>{children}</EnvironmentProvider>
 }
 
 export default RootTemplate

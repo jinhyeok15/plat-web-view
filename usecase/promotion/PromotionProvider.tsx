@@ -1,6 +1,6 @@
 'use client'
 
-import api from '@plat/api'
+import { useApi } from '@plat/api'
 import { ApiClientContext } from '@plat/promotion/apiClient'
 
 type Props = {
@@ -9,6 +9,8 @@ type Props = {
 }
 
 export const PromotionProvider = ({ children, identifier }: Props) => {
+  const api = useApi()
+
   const headers: HeadersInit = {}
   if (identifier) {
     headers['identifier'] = identifier
@@ -16,7 +18,9 @@ export const PromotionProvider = ({ children, identifier }: Props) => {
   return (
     <ApiClientContext.Provider
       value={api.getClient({
-        headers,
+        config: {
+          headers,
+        },
       })}
     >
       {children}

@@ -1,4 +1,4 @@
-import type { UserAgent } from '@plat/server'
+import type { UserAgent } from '@plat/next.server'
 import { MapService } from '@plat/map'
 import { checkIsWebView } from '@plat/utils/webview'
 import SwipeableDrawer from '@plat-ui/SwipeableDrawer'

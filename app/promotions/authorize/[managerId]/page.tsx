@@ -1,5 +1,5 @@
-import api from '@plat/api'
 import { notFound, redirect } from 'next/navigation'
+import api from '@plat/api/server'
 
 interface PageProps {
   params: {

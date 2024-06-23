@@ -1,9 +1,9 @@
 import { PromotionProvider } from '@plat/promotion'
-import { headers } from 'next/headers'
+import { cookies } from 'next/headers'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const identifier = headers().get('identifier')
-  console.log(identifier)
+  const identifier = cookies().get('identifier')?.value ?? null
+
   return (
     <PromotionProvider identifier={identifier}>{children}</PromotionProvider>
   )

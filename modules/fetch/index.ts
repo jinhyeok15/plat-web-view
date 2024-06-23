@@ -25,15 +25,23 @@ export class RestAPI<URI extends string> {
     })
   }
 
-  getClient(config: RequestOption = {}) {
+  getClient(init?: { baseUrl?: string; config?: RequestOption }) {
+    if (!init) {
+      return this
+    }
+
+    const { baseUrl, config } = init
+
     this.config = {
       ...this.config,
       ...config,
       headers: {
         ...this.config.headers,
-        ...config.headers,
+        ...config?.headers,
       },
     }
+
+    this.baseUrl = baseUrl ?? this.baseUrl
 
     return new RestAPI(this.baseUrl, this.config)
   }

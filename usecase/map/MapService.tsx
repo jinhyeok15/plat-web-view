@@ -7,7 +7,7 @@ import {
   Geolocation,
   GeolocationPositionError,
 } from '@modules/geolocation'
-import options from '@plat/map/options'
+import { useKakaoOptions } from '@plat/map/options'
 import { WebViewDataProvider, WebViewLocation } from '@plat/webview'
 
 type Props = {
@@ -15,6 +15,8 @@ type Props = {
 }
 
 const MapService = ({ isWebView }: Props) => {
+  const options = useKakaoOptions()
+
   const handleError = (error?: GeolocationPositionError) => {
     if (!error) return undefined
     if (error.code === ErrorCode.PERMISSION_DENIED) {
