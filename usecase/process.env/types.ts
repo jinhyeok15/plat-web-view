@@ -5,9 +5,9 @@ export type PublicEnvKey =
 
 export type PublicProcessEnv = Record<PublicEnvKey, string | undefined>
 
-export type ServerEnvKey = undefined
+export type NextEnvKey = {}
 
 export type ProcessEnv = {
-  server: {}
+  next: NextEnvKey
   public: PublicProcessEnv
 }

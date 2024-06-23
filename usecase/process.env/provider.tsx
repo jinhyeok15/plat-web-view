@@ -2,7 +2,7 @@
 
 import { getEnvironment } from '@plat/process.env/getEnvironment'
 import { PublicEnvKey, PublicProcessEnv } from '@plat/process.env/types'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type ProcessEnvContextValue = Record<PublicEnvKey, string>
 
@@ -36,3 +36,5 @@ export const EnvironmentProvider = ({
     )
   )
 }
+
+export const useProcessEnv = () => useContext(ProcessEnvContext)!

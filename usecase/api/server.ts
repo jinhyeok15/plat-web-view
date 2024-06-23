@@ -1,6 +1,6 @@
 import { RestAPI } from '@modules/fetch'
 import { URI } from '@plat/api/resource'
-import { getEnvironment } from '@plat/process.env/getEnvironment'
+import { getEnvironment } from '@plat/process.env'
 
 const environ = getEnvironment()
 
