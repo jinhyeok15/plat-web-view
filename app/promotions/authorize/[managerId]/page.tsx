@@ -16,14 +16,18 @@ const Page = async ({ params }: PageProps) => {
 
   if (res.status === 200) {
     const marketId = await res.json()
-    return redirect(`/promotions/market/${marketId}`)
+    return marketId
+      ? redirect(`/promotions/market/${marketId}`)
+      : redirect(`/promotions/market/registration`)
   }
 
-  if (res.status === 404) {
+  if (res.status >= 400) {
     return notFound()
   }
 
-  throw new Error(res.statusText)
+  if (res.status >= 500) {
+    throw new Error(res.statusText)
+  }
 }
 
 export default Page
